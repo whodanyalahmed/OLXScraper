@@ -1,0 +1,21 @@
+body{
+    background: #555 !important;
+}
+
+h2{
+    color:#eee;
+    line-height: 2em;
+    margin-bottom:20px;
+}
+
+p{
+    color:#eee;  
+}
+
+.card-text{
+    color:#555 !important;
+}
+.second{
+    padding-top:30px;
+    margin-bottom:70px !important;
+}

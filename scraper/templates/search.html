@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Search
+{% endblock title %}
+
+{% block heading %}
+Search results:
+{% endblock heading %}
+
+{% block body %}
+
+<div class="container">
+<h2 class="second">These are the results:</h2>
+<div class="card">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{min_name}}</h5>
+    <p class="card-text">{{min_name}} is the mix price product on olx and its price is <b>{{min_price}}/=</b></p>
+    <a href="#" class="btn btn-primary">Contact</a>
+  </div>
+</div>
+{% endblock body %}

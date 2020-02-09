@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home Scraper
+{% endblock title %}
+
+{% block heading %}
+Home
+{% endblock heading %}
+
+{% block body %}
+
+
+<div class="container">
+<h2 class="second">Search here...</h2>
+<form action="/search" method="POST">
+{% csrf_token %}
+    <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Enter product" name="url" aria-label="url" aria-describedby="button-addon2" autocomplete=off>
+        <div class="input-group-append">
+            <input type="submit" name="submit" class="btn btn-outline-light"  id="button-addon2" value="Search" />
+        </div>
+    </div>
+</form>
+</div>
+{% endblock body %}
