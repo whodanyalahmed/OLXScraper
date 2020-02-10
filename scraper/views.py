@@ -31,18 +31,36 @@ def search(request):
         co = sprice[1].replace(",","")
         # print(co)
         price.append(co)
-        
+    link = []
+    for each_img in soup.findAll('img',{'class':'_3Kg_w'}):
+        mlink = each_img['src']
+        link.append(mlink)
+        # print(mlink)
     dt = dict(zip(name,price))
     # print(dt)
     # print(dt)
     price = 0
+    mincount = 0
+    maxcount = 0
     minprice = minpr(price)
+    maxprice = 0
     minname = ""
+    maxname = ""
     for k,v in dt.items():
         if int(v) < minprice:
             minprice = int(v)
             minname = k
-    return render(request,"search.html",context={'html':html,'min_name':minname,'min_price':minprice})
+            mincount +=1
+
+    for k,v in dt.items():
+        if int(v) > maxprice:
+            maxprice = int(v)
+            maxname = k
+            maxcount +=1
+
+    minsrc = link[mincount]
+    maxsrc = link[maxcount]
+    return render(request,"search.html",context={'html':html,'min_name':minname,'min_price':minprice,'max_name':maxname,'max_price':maxprice,'minsrc':minsrc,'maxsrc':maxsrc})
 
 
 def minpr(d):

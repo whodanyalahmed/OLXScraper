@@ -1,8 +1,9 @@
 body{
     background: #555 !important;
+    padding-bottom:40px;
 }
 
-h2{
+h2,h3{
     color:#eee;
     line-height: 2em;
     margin-bottom:20px;
