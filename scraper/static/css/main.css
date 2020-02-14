@@ -1,3 +1,7 @@
+*{
+    font-family: 'Poppins','Montserrat', sans-serif;
+}
+
 body{
     background: #555 !important;
     padding-bottom:40px;
