@@ -4,7 +4,7 @@
 
 body{
     background: #555 !important;
-    padding-bottom:40px;
+    min-height:500px;
 }
 
 h2,h3{
@@ -27,4 +27,20 @@ p{
 
 img{
     border-radius: 20px !important;
+}
+
+
+footer{
+    background-color: #eee;
+    color:#555;
+    padding:10px;
+    width: 100%;
+    margin-top:12.2em;
+    font-size:14px;
+    text-align:center;
+}
+
+
+#eclaim{
+    padding-top:50px !important;
 }

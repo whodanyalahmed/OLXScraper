@@ -18,7 +18,7 @@ def search(request):
     try:    
         html = requests.get("https://www.olx.com.pk/items/q-"+url)
         scode = html.status_code
-        print(html.status_code)
+        # print(html.status_code)
 
         soup = BeautifulSoup(html.text,"lxml")
         name =  []

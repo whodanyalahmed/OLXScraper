@@ -16,9 +16,9 @@ Home
 <form action="/search" method="POST">
 {% csrf_token %}
     <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Enter product" name="url" aria-label="url" aria-describedby="button-addon2" autocomplete=off>
+    <input type="text" class="form-control" placeholder="Enter product" name="url" autofocus aria-label="url" aria-describedby="button-addon2" autocomplete=off>
         <div class="input-group-append">
-            <input type="submit" name="submit" class="btn btn-outline-light"  id="button-addon2" value="Search" />
+            <input type="submit" name="submit" class="btn btn-outline-light"  id="button-addon2" value="Search"  />
         </div>
     </div>
 </form>
