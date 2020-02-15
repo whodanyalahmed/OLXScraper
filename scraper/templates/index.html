@@ -12,11 +12,11 @@ Home
 
 
 <div class="container">
-<h2 class="second">Search here...</h2>
 <form action="/search" method="POST">
-{% csrf_token %}
+{% csrf_token %}    
+    <h2 class="second">Search here...</h2>
     <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Enter product ; it will show max and min both" name="url" autofocus aria-label="url" aria-describedby="button-addon2" autocomplete=off>
+        <input type="text" class="form-control" placeholder="Enter product ; it will show max and min both" name="url" autofocus aria-label="url" aria-describedby="button-addon2" autocomplete=off>
         <div class="input-group-append">
             <input type="submit" name="submit" class="btn btn-outline-light"  id="button-addon2" value="Search"  />
         </div>

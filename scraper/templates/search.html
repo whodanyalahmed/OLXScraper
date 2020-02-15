@@ -11,29 +11,36 @@ Search results:
 {% block body %}
 
 <div class="container">
-  <h2 class="second">These are the results:</h2>
-  <h3>Min Price: </h3><br>
-  <div class="card">
-    <div class="card-header">
-      <h5> {{min_name}} </h5>
-    </div>
-    <div class="card-body">
-      <p class="card-text">{{min_name}} is the min price product on olx and its price is <b>{{min_price}}/=</b></p>
-      <img src="{{minsrc}}" ><br><br>
-      <a href="#" align="right" class="btn btn-primary">Contact</a>
-    </div>
-  </div>
-  <br><br>
-  <h3>Max Price: </h3><br>
-  <div class="card" id="last">
-    <div class="card-header">
-      <h5> {{max_name}} </h5>
-    </div>
-    <div class="card-body">
-      <p class="card-text">{{max_name}} is the max price product on olx and its price is <b>{{max_price}}/=</b></p>
-      <img src="{{maxsrc}}" ><br><br>
-      <a href="#" class="btn btn-primary" ml-0 >Contact</a>
-    </div>
+  {% comment %} <h2 class="second">These are the results:</h2> {% endcomment %}
+  
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Min Price: </h3><br>
+      <div class="card" id="last">
+        <div class="card-header">
+          <h5> {{min_name}} </h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{min_name}} is the min price product on olx and its price is <b><quote>{{min_price}}/=</quote></b></p>
+          <img src="{{minsrc}}" ><br><br>
+          <a href="#" align="right" class="btn btn-primary">Contact</a>
+        </div>
+      </div>
+     </div> 
+      <div class="col-md-6">
+        <h3>Max Price: </h3><br>
+        <div class="card" id="last" >
+        
+          <div class="card-header">
+            <h5> {{max_name}} </h5>
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{max_name}} is the max price product on olx and its price is <b>{{max_price}}/=</b></p>
+            <img src="{{maxsrc}}" ><br><br>
+            <a href="#" class="btn btn-primary" ml-0 >Contact</a>
+          </div>
+        </div>
+      </div>
   </div>
 </div>
 {% endblock body %}

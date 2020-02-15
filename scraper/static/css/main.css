@@ -1,5 +1,5 @@
 *{
-    font-family: 'Poppins','Montserrat', sans-serif;
+    font-family: 'Montserrat','Poppins', sans-serif;
 }
 
 body{
@@ -11,6 +11,7 @@ body{
 h2,h3{
     color:#eee !important;
     line-height: 2em;
+    margin-top:10px;
 }
 
 p{
@@ -42,6 +43,11 @@ footer{
     margin-top:50px !important;
 }
 
+
+form{
+    padding-top:10vh;
+}
+
 #last{
-    padding-bottom: 3.5rem;
+    padding-bottom:2rem;
 }
