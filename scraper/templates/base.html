@@ -29,6 +29,7 @@ function intonew(i){
       var ele = document.getElementsByClassName("nav-item")[d];
       ele.className = "nav-item active";
       ele.style.fontWeight = "600";
+      ele.style.fontSize= "1.1em";
     }
     else{   
       document.getElementsByClassName('nav-item')[d].className = "nav-item";
@@ -69,7 +70,9 @@ function intonew(i){
     {% block body %}
     {% endblock body %}
 </body>
-<footer class="container" align="center">
-All rights reserved by <a href="https://danismobility.blogspot.com">Danismobility</a> Copyright &copy; 2020.
+<footer  align="center">
+  <div class="container">
+    All rights reserved by <a href="https://danismobility.blogspot.com">Danismobility</a> Copyright &copy; 2020.
+  </div>
 </footer>
 </html>
