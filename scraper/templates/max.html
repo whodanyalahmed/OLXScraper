@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %}
-OLXScraper
+Maximum
 {% endblock title %}
 
 {% block heading %}
-Home
+Max results:
 {% endblock heading %}
 
 {% block body %}
@@ -16,9 +16,8 @@ Home
 {% csrf_token %}    
     <h2 class="second">Search here...</h2>
     <div class="input-group mb-3">
-    
-        <input type="hidden" class="form-control" name="title" value="Home" />
-        <input type="text" class="form-control" placeholder="Enter product ; it will show max and min both" name="url" autofocus aria-label="url" aria-describedby="button-addon2" autocomplete=off>
+        <input type="hidden" class="form-control" name="title" value="Maximum" id="titletohide" />
+        <input type="text" class="form-control" placeholder="Enter product ; it will show max " name="url" autofocus aria-label="url" aria-describedby="button-addon2" autocomplete=off>
         <div class="input-group-append">
             <input type="submit" name="submit" class="btn btn-outline-light"  id="button-addon2" value="Search"  />
         </div>

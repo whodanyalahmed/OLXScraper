@@ -8,6 +8,9 @@ body{
     min-height: 100vh;
 }
 
+h1{
+    font-weight:bolder;
+}
 h2,h3{
     color:#eee !important;
     line-height: 2em;
@@ -22,7 +25,10 @@ p{
     color:#555 !important;
 }
 .second{
-    padding-top:30px;
+    margin-top:5vh;
+    background: #eee;
+    color:#555 !important;
+    width:211px;
 }
 
 img{
@@ -50,4 +56,12 @@ form{
 
 #last{
     padding-bottom:2rem;
+}
+input{
+    outline:none !important;
+}
+
+#titletohide{
+    display:none !important;
+    
 }

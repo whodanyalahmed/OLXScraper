@@ -10,6 +10,8 @@ Search results:
 
 {% block body %}
 
+{% if title == "Home" %}
+
 <div class="container">
   {% comment %} <h2 class="second">These are the results:</h2> {% endcomment %}
   
@@ -37,10 +39,47 @@ Search results:
           <div class="card-body">
             <p class="card-text">{{max_name}} is the max price product on olx and its price is <b>{{max_price}}/=</b></p>
             <img src="{{maxsrc}}" ><br><br>
-            <a href="#" class="btn btn-primary" ml-0 >Contact</a>
+            <a href="#" class="btn btn-primary ">Contact</a>
           </div>
         </div>
       </div>
   </div>
 </div>
+
+
+
+{% elif title == "Minimum" %}
+
+<div class="container">
+  {% comment %} <h2 class="second">These are the results:</h2> {% endcomment %}
+  
+  <h3>Min Price: </h3><br>
+      <div class="card" id="last">
+        <div class="card-header">
+          <h5> {{min_name}} </h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{min_name}} is the min price product on olx and its price is <b><quote>{{min_price}}/=</quote></b></p>
+          <img src="{{minsrc}}" ><br><br>
+          <a href="#" align="right" class="btn btn-primary">Contact</a>
+        </div>
+      </div>
+     </div> 
+{% else %}
+<div class="container">
+  {% comment %} <h2 class="second">These are the results:</h2> {% endcomment %}
+
+        <h3>Max Price: </h3><br>
+        <div class="card" id="last" >
+          <div class="card-header">
+            <h5> {{max_name}} </h5>
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{max_name}} is the max price product on olx and its price is <b>{{max_price}}/=</b></p>
+            <img src="{{maxsrc}}" ><br><br>
+            <a href="#" class="btn btn-primary ">Contact</a>
+          </div>
+        </div>
+      </div>
+{% endif %}
 {% endblock body %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Minimum
+{% endblock title %}
+
+{% block heading %}
+Min results:
+{% endblock heading %}
+
+{% block body %}
+<div class="container">
+<form action="/search" method="POST">
+{% csrf_token %}    
+    <h2 class="second">Search here...</h2>
+    <div class="input-group mb-3">
+        <input type="hidden" class="form-control" name="title" value="Minimum" />
+        <input type="text" class="form-control" placeholder="Enter product ; it will show only min" name="url" autofocus aria-label="url" aria-describedby="button-addon2" autocomplete=off>
+        <div class="input-group-append">
+            <input type="submit" name="submit" class="btn btn-outline-light"  id="button-addon2" value="Search"  />
+        </div>
+    </div>
+</form>
+</div>
+
+
+{% comment %} <div class="container">
+  <h2 class="second">These are the results:</h2>
+    <div class="col-md-6">
+      <h3>Min Price: </h3><br>
+      <div class="card" id="last">
+        <div class="card-header">
+          <h5> {{min_name}} </h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{min_name}} is the min price product on olx and its price is <b><quote>{{min_price}}/=</quote></b></p>
+          <img src="{{minsrc}}" ><br><br>
+          <a href="#" align="right" class="btn btn-primary">Contact</a>
+        </div>
+      </div>
+     </div> 
+</div> {% endcomment %}
+{% endblock body %}
