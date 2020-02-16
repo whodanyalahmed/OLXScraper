@@ -9,7 +9,12 @@ Min results:
 {% endblock heading %}
 
 {% block body %}
-<div class="container">
+<script>
+intonew(1);
+</script>
+
+
+<div class="container" >
 <form action="/search" method="POST">
 {% csrf_token %}    
     <h2 class="second">Search here...</h2>
@@ -21,6 +26,10 @@ Min results:
         </div>
     </div>
 </form>
+
+<div id="test">
+</div>
+
 </div>
 
 

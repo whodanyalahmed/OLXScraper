@@ -10,8 +10,11 @@ Home
 
 {% block body %}
 
+<script>
+intonew(0);
+</script>
 
-<div class="container">
+<div class="container" >
 <form action="/search" method="POST">
 {% csrf_token %}    
     <h2 class="second">Search here...</h2>
@@ -25,4 +28,5 @@ Home
     </div>
 </form>
 </div>
+
 {% endblock body %}
