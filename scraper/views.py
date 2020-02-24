@@ -80,7 +80,7 @@ def search(request):
     except Exception as e:
         return render(request,"notfound.html",{'error':e})
 
-pathtofile = settings.STATIC_ROOT+"\\files\\names.csv"
+pathtofile = settings.STATIC_ROOT+"\\names.csv"
 file_name = "names.csv"
 # def downView(request):
 #   #get the filename of desired excel file
@@ -135,7 +135,7 @@ def listextract(request):
             link.append(mlink)
             # print(mlink)
         dt = dict(zip(name,price))
-        path = settings.STATIC_ROOT+"\\files"
+        path = settings.STATIC_ROOT
         try:
             os.chdir(path)
             print("File is already there")
@@ -143,7 +143,6 @@ def listextract(request):
         except Exception as f:
             os.mkdir(path)
             print("File created")
-        print(path)
         print(pathtofile)
         header = "name,price\n"
         with open(pathtofile,"w+") as f:
@@ -152,7 +151,7 @@ def listextract(request):
             for k,v in dt.items():
                 k = k.replace("," , "-")
                 myfile.write(k + "," + v + "\n")
-        return render(request,"search.html",context={'title':title,'html':html,'path':pathtofile})
+        return render(request,"search.html",context={'title':title,'html':html,'path':pathtofile,'name':file_name})
     except Exception as e:
         return render(request,"notfound.html",{'error':e})
 
