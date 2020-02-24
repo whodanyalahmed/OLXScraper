@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+Downlaod CSV
+{% endblock title %}
+
+{% block heading%}
+Downlaod
+{% endblock heading %}
+
+{% block body %}
+<div class="container">
+    <h3>List Result: </h3><br>
+    <a href="{{path}}" download class="btn btn-outline-light">Download</a>
+</div>
+{% endblock body %}
