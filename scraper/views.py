@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from django.http import HttpResponse,StreamingHttpResponse
+from django.http import HttpResponse,StreamingHttpResponse,FileResponse
 import requests,os
 from django.conf import settings
 from django.core.files import File
@@ -81,15 +81,24 @@ def search(request):
         return render(request,"notfound.html",{'error':e})
 
 pathtofile = settings.STATIC_ROOT+"\\files\\names.csv"
-def downView(request):
-    file_name = "names.csv" #get the filename of desired excel file
-    path_to_file = pathtofile #get the path of desired excel file
-    response = HttpResponse()
-    response['Content-Disposition'] = 'attachment; filename=%s' % file_name
-    response['X-Sendfile'] = path_to_file
-    return response
-    # return render(request,"download.html",context={'path':pathtofile})
+file_name = "names.csv"
+# def downView(request):
+#   #get the filename of desired excel file
+#     path_to_file = pathtofile #get the path of desired excel file
+#     response = HttpResponse()
+#     response['Content-Disposition'] = 'attachment; filename=%s' % file_name
+#     response['X-Sendfile'] = path_to_file
+#     return response
+#     # return render(request,"download.html",context={'path':pathtofile})
 
+
+def downView(request):
+    f = open(pathtofile, "r")
+    response = FileResponse(f, content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename=names.csv'
+    response['X-Sendfile'] = pathtofile
+    f.close()
+    return response
 
 def test(request):
     title = request.POST.get('title')
