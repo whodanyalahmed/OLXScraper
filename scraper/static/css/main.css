@@ -5,7 +5,7 @@
 }
 
 body{
-    background: #555 !important;
+    background: rgb(6, 44, 66) !important;
     position: relative;
     min-height: 100vh;
 }

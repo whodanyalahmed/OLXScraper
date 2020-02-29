@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.http import HttpResponse,StreamingHttpResponse,FileResponse
-import requests,os
+import requests,os,csv
 from django.conf import settings
 from django.core.files import File
 from bs4 import BeautifulSoup
@@ -80,39 +80,29 @@ def search(request):
     except Exception as e:
         return render(request,"notfound.html",{'error':e})
 
-pathtofile = settings.STATIC_ROOT+"\\names.csv"
-file_name = "names.csv"
-# def downView(request):
-#   #get the filename of desired excel file
-#     path_to_file = pathtofile #get the path of desired excel file
-#     response = HttpResponse()
-#     response['Content-Disposition'] = 'attachment; filename=%s' % file_name
-#     response['X-Sendfile'] = path_to_file
-#     return response
-#     # return render(request,"download.html",context={'path':pathtofile})
+pathtofile = settings.STATIC_ROOT+"\\files\\names.csv"
 
-
-def downView(request):
-    f = open(pathtofile, "r")
-    response = FileResponse(f, content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename=names.csv'
-    response['X-Sendfile'] = pathtofile
-    f.close()
+def getFile(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="names.csv"'
+    writer = csv.writer(response)
+    with open(pathtofile,"r") as e:
+        for d in e.readlines():
+            row_to_list =  [d.rstrip()]
+            writer.writerow(row_to_list)
+            print(row_to_list)
     return response
-
-def test(request):
-    title = request.POST.get('title')
-    return HttpResponse(title)
 
 def listextract(request):
     url = request.POST["url"]
     title = request.POST.get('title')
-    # url = request.POST.get('url',None)
+    # url = request.POST.get('url')
     # con = Person.objects.get(name = url)
     try:    
         html = requests.get("https://www.olx.com.pk/items/q-"+url)
         scode = html.status_code
-        # print(html.status_code)
+        print(str(html.status_code) + "reach here")
+        
 
         soup = BeautifulSoup(html.text,"lxml")
         name =  []
@@ -129,13 +119,8 @@ def listextract(request):
             co = sprice[1].replace(",","")
             # print(co)
             price.append(co)
-        link = []
-        for each_img in soup.findAll('img',{'class':'_3Kg_w'}):
-            mlink = each_img['src']
-            link.append(mlink)
-            # print(mlink)
         dt = dict(zip(name,price))
-        path = settings.STATIC_ROOT
+        path = settings.STATIC_ROOT+"\\files"
         try:
             os.chdir(path)
             print("File is already there")
@@ -143,6 +128,7 @@ def listextract(request):
         except Exception as f:
             os.mkdir(path)
             print("File created")
+        print(path)
         print(pathtofile)
         header = "name,price\n"
         with open(pathtofile,"w+") as f:
@@ -151,7 +137,7 @@ def listextract(request):
             for k,v in dt.items():
                 k = k.replace("," , "-")
                 myfile.write(k + "," + v + "\n")
-        return render(request,"search.html",context={'title':title,'html':html,'path':pathtofile,'name':file_name})
+        return render(request,"search.html",context={'title':title,'html':html,'path':pathtofile})
     except Exception as e:
         return render(request,"notfound.html",{'error':e})
 
