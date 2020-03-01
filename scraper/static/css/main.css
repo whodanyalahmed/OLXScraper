@@ -29,7 +29,6 @@ p{
     color:#555 !important;
 }
 .second{
-    margin-top:5vh;
     background: #eee;
     color:#555 !important;
     width:211px;
@@ -53,7 +52,8 @@ footer{
 
 
 #mainform{
-    padding-top:10vh;
+    padding-top:50px;
+    margin-bottom:80px;
 }
 #contactform{
     text-align: center;
@@ -95,3 +95,17 @@ nav{
     line-height: 50px;
     letter-spacing: 0.3em;
 }
+
+#contactlabel label{
+    text-align:left !important;
+    color:#eee;
+}
+#contactlabel input::-webkit-outer-spin-button,
+#contactlabel input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Firefox */
+#contactlabel input[type=number] {
+    -moz-appearance:textfield;
+  }

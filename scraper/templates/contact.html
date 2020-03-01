@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
 {% block title %}
 Contact us
 {% endblock title %}
@@ -15,11 +16,11 @@ Contact us
 intonew(5);
 </script>
 
-
-<form action="/" method="POST" id="contactform">
-{% csrf_token %}
-{{form.as_p}}
-<input type="submit" class="btn btn-outline-light" value="submit" id="contactbtn" />
-</form>
-
+<div id="contactlabel">
+    <form action="/" method="POST" id="contactform" style="width:500px;margin:0 auto;">
+    {% csrf_token %}
+    {{form|crispy}}
+    <input type="submit" class="btn btn-outline-light" value="submit" id="contactbtn" />
+    </form>
+</div>
 {% endblock body %}
