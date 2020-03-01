@@ -1,15 +1,26 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView,CreateView
 from django.http import HttpResponse,StreamingHttpResponse,FileResponse
 import requests,os,csv
 from django.conf import settings
 from django.core.files import File
 from bs4 import BeautifulSoup
+from .models import contactus
 # Create your views here.
 
 
-class homeView(TemplateView):
-    template_name = "index.html"
+# class homeView(TemplateView):
+#     template_name = "index.html"
+
+def homeView(request):
+    try:
+        enteredname = request.POST['name']
+    except Exception as e:
+        enteredname = "empty"
+    print(enteredname)
+    return render(request,"index.html",context={
+        'name':enteredname
+    })
 
 class minView(TemplateView):
     template_name = "min.html"
@@ -20,6 +31,22 @@ class maxView(TemplateView):
 
 class listView(TemplateView):
     template_name = "list.html"
+
+
+class contactView(CreateView):
+    model =  contactus 
+    template_name = "contact.html"
+    fields = ('__all__')
+    success_url = '/'
+
+
+
+# def contactView(request):
+#     return render(request,"contact.html")
+
+
+def aboutView(request):
+    return render(request,"about.html")
 
 
 def search(request):

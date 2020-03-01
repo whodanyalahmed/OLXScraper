@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Contact us
+{% endblock title %}
+
+
+{% block heading %}
+Contact us
+{% endblock heading %}
+
+
+{% block body %}
+<script>
+intonew(5);
+</script>
+
+
+<form action="/" method="POST" id="contactform">
+{% csrf_token %}
+{{form.as_p}}
+<input type="submit" class="btn btn-outline-light" value="submit" id="contactbtn" />
+</form>
+
+{% endblock body %}

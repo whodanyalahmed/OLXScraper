@@ -6,6 +6,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="shortcut icon" type="image/jpg" href="{% static 'favicon.ico' %}"/> 
+    {% comment %} Local Render {% endcomment %}
+        <!-- JQuery -->
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{% static 'js/popper.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+    <script src="{% static 'js/bootstrap.js' %}"></script> 
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+
+    {% comment %} Online Render {% endcomment %}
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600,800,900|Poppins:200,400,600,800,900&display=swap" rel="stylesheet">
     <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -24,7 +35,7 @@
   
 function intonew(i){
 
-  for (var d = 0; d <= 3; d++){
+  for (var d = 0; d <= 5  ; d++){
     if(d == i){
       var ele = document.getElementsByClassName("nav-item")[d];
       ele.className = "nav-item active";
@@ -50,13 +61,19 @@ function intonew(i){
         <a class="nav-link" href="/"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/min"><i class="fas fa-angle-down"></i> Min <span class="sr-only"></span></a>
+        <a class="nav-link" href="min"><i class="fas fa-angle-down"></i> Min <span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/max"><i class="fas fa-angle-up"></i> Max <span class="sr-only"></span></a>
+        <a class="nav-link" href="max"><i class="fas fa-angle-up"></i> Max <span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/list"><i class="far fa-list-alt"></i> List <span class="sr-only"></span></a>
+        <a class="nav-link" href="list"><i class="far fa-list-alt"></i> List <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about"><i class="fas fa-info-circle"></i> About us <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="contact"><i class="fas fa-phone-alt"></i> Contact us <span class="sr-only"></span></a>
       </li>
     </ul>
   </div>
