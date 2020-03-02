@@ -108,8 +108,6 @@ def search(request):
         print(maxsrc +" "+ str(maxcount))
         return render(request,"search.html",context={'title':title,'html':html,'min_name':minname,'min_price':minprice,'max_name':maxname,'max_price':maxprice,'minsrc':minsrc,'maxsrc':maxsrc})
     except Exception as e:
-        print("except: " + minsrc +" "+ str(mincount))
-        print(maxsrc +" "+ str(maxcount))
         return render(request,"notfound.html",{'error':e})
 
 pathtofile = settings.STATIC_ROOT+"\\files\\names.csv"
