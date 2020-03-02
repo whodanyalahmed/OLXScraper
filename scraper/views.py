@@ -78,7 +78,7 @@ def search(request):
         for each_img in soup.findAll('img',{'class':'_3Kg_w'}):
             mlink = each_img['src']
             link.append(mlink)
-            # print(mlink)
+            print(mlink)
         dt = dict(zip(name,price))
         # print(dt)
         # print(dt)
@@ -89,6 +89,7 @@ def search(request):
         maxprice = 0
         minname = ""
         maxname = ""
+
         for k,v in dt.items():
             if int(v) < minprice:
                 minprice = int(v)
@@ -103,8 +104,12 @@ def search(request):
 
         minsrc = link[mincount]
         maxsrc = link[maxcount]
+        print("try: " + minsrc +" "+ str(mincount))
+        print(maxsrc +" "+ str(maxcount))
         return render(request,"search.html",context={'title':title,'html':html,'min_name':minname,'min_price':minprice,'max_name':maxname,'max_price':maxprice,'minsrc':minsrc,'maxsrc':maxsrc})
     except Exception as e:
+        print("except: " + minsrc +" "+ str(mincount))
+        print(maxsrc +" "+ str(maxcount))
         return render(request,"notfound.html",{'error':e})
 
 pathtofile = settings.STATIC_ROOT+"\\files\\names.csv"
