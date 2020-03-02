@@ -54,6 +54,13 @@ def search(request):
     title = request.POST.get('title')
     # url = request.POST.get('url',None)
     # con = Person.objects.get(name = url)
+    price = 0
+    mincount = 0
+    maxcount = 0
+    minprice = minpr(price)
+    maxprice = 0
+    minname = ""
+    maxname = ""
     try:    
         html = requests.get("https://www.olx.com.pk/items/q-"+url)
         scode = html.status_code
@@ -82,13 +89,6 @@ def search(request):
         dt = dict(zip(name,price))
         # print(dt)
         # print(dt)
-        price = 0
-        mincount = 0
-        maxcount = 0
-        minprice = minpr(price)
-        maxprice = 0
-        minname = ""
-        maxname = ""
 
         for k,v in dt.items():
             if int(v) < minprice:
