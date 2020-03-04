@@ -50,7 +50,6 @@ footer{
     bottom:0px;
     height: 3rem;
     padding-top:13px;
-    margin-bottom:-20px;
 }
 
 
@@ -124,3 +123,10 @@ nav{
       color:#eee;
       background:rgba(85, 85, 85, 0.657);
   }
+
+  /* @media only screen and (max-width: 1500px) {
+    footer {
+      margin-bottom:-20px;
+      color:rgb(231, 7, 231);
+    }
+  } */
