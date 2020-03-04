@@ -16,7 +16,7 @@ Contact us
 intonew(5);
 </script>
 
-<div id="contactlabel">
+<div class="container" id="contactlabel">
     <form action="/" method="POST" id="contactform" style="width:500px;margin:0 auto;">
     {% csrf_token %}
     {{form|crispy}}

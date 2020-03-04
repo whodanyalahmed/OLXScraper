@@ -49,15 +49,14 @@ footer{
     position:absolute;
     bottom:0px;
     height: 3rem;
+    padding-top:13px;
+    margin-bottom:-20px;
 }
 
 
 #mainform{
     padding-top:50px;
     margin-bottom:80px;
-}
-#contactform{
-    text-align: center;
 }
 
 #contactbtn{
@@ -98,7 +97,6 @@ nav{
 }
 
 #contactlabel label{
-    text-align:left !important;
     color:#eee;
 }
 #contactlabel input::-webkit-outer-spin-button,
@@ -109,4 +107,20 @@ nav{
 /* Firefox */
 #contactlabel input[type=number] {
     -moz-appearance:textfield;
+  }
+
+  #cap{
+      font-size:2.5em;
+      font-weight:bold;
+    color:#eee;
+  }
+
+  #danismobility{
+      color:#eee;
+  }
+
+
+  *::selection{
+      color:#eee;
+      background:rgba(85, 85, 85, 0.657);
   }
