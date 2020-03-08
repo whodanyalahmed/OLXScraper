@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'hasnain.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd3t0upfa68qu3g',
+        'USER': 'yrfppxotbxengn',
+        'PASSWORD': 'af246eaa57265465a468c4075e0eca1ad63ed0f693e224201ae88ef9b6149b07',
+        'HOST': 'ec2-54-80-184-43.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
