@@ -1,5 +1,4 @@
 beautifulsoup4==4.8.2
-Brlapi==0.6.6
 certifi==2018.1.18
 chardet==3.0.4
 Click==7.0
