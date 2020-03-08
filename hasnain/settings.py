@@ -16,6 +16,7 @@ import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -79,16 +80,21 @@ WSGI_APPLICATION = 'hasnain.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'NAME': 'feedback',
+        # 'USER': "root",
+        # 'PASSWORD': "",
+        # 'HOST':'localhost',
+        # 'PORT':3306,
+
         'NAME': 'd3t0upfa68qu3g',
         'USER': 'yrfppxotbxengn',
         'PASSWORD': 'af246eaa57265465a468c4075e0eca1ad63ed0f693e224201ae88ef9b6149b07',
         'HOST': 'ec2-54-80-184-43.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'PORT': 5432,
     }
 }
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
 
 
 # Password validation

@@ -37,8 +37,7 @@ class contactView(CreateView):
     model =  contactus 
     template_name = "contact.html"
     fields = ('__all__')
-    success_url = '/'
-
+    success_url = 'index.html'
 
 
 # def contactView(request):
