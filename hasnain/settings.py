@@ -28,7 +28,7 @@ SECRET_KEY = 'e8$yd-h5qw_acpl$ixf0t(@=n6q7x#poj(0%)e0gj6dert7jh='
 DEBUG = False
 
 # ALLOWED_HOSTS = ["http://olxscrapeer.herokuapp.com/",'*']
-ALLOWED_HOSTS = ["http://olxscrapeer.herokuapp.com/","*"]
+ALLOWED_HOSTS = []
 
 # Application definition
 
