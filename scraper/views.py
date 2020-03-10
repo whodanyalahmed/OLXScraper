@@ -34,10 +34,10 @@ class listView(TemplateView):
 
 
 class contactView(CreateView):
-    model =  contactus 
     template_name = "contact.html"
+    model =  contactus 
     fields = ('__all__')
-    success_url = 'index.html'
+    success_url = '/'
 
 
 # def contactView(request):

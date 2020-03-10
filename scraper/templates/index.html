@@ -20,9 +20,7 @@ $(document).ready(function() {
 </script>
 
 
-{% if name == 'empty'  %}
-
-{% else %}
+{% if name != 'empty'  %}
 
 <div class="toast" data-autohide='false' data-delay="3000" id="myToast" style="position: absolute; top: 0; right: 0;">
         <div class="toast-header">
@@ -35,6 +33,8 @@ $(document).ready(function() {
             <div>Thanks {{name}}! for your feedback...</div>
         </div>
     </div>
+
+{% else %}
 
 
 

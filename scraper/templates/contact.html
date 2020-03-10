@@ -17,7 +17,7 @@ intonew(5);
 </script>
 
 <div class="container" id="contactlabel">
-    <form action="/" method="POST" id="contactform" style="width:500px;margin:0 auto;">
+    <form action="" method="POST" id="contactform" style="width:500px;margin:0 auto;">
     {% csrf_token %}
     {{form|crispy}}
     <input type="submit" class="btn btn-outline-light" value="submit" id="contactbtn" />
