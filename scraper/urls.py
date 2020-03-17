@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import homeView,search,minView,maxView,listView,listextract,getFile,contactView,aboutView
+from .views import suchomeView,search,minView,maxView,listView,listextract,getFile,contactView,aboutView,HomeView
 urlpatterns = [
-    path('',homeView,name="home"),
+    path('',HomeView.as_view(),name="home"),
+    path('home',suchomeView,name="suchome"),
     path('search',search,name="search"),
     path('min',minView.as_view(),name="min"),
     path('max',maxView.as_view(),name="max"),
@@ -10,7 +11,7 @@ urlpatterns = [
     path('getfile',getFile,name="getfile"),
     path('contact',contactView.as_view(),name="contact"),
     path('about',aboutView,name="about"),
-    
+
 
 
     ]

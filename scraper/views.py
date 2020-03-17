@@ -5,21 +5,24 @@ import requests,os,csv
 from django.conf import settings
 from django.core.files import File
 from bs4 import BeautifulSoup
-from .models import contactus
+from .models import Contactus
 # Create your views here.
 
 
 # class homeView(TemplateView):
 #     template_name = "index.html"
+enteredname= ""
 
-def homeView(request):
+def suchomeView(request):
     try:
-        enteredname = request.POST['name']
+        listname = Contactus.objects.order_by('pk')
+        listlen = len(listname)
+        name = listname[listlen-1]
     except Exception as e:
-        enteredname = "empty"
-    print(enteredname)
+        name = "empty"
+    print(name)
     return render(request,"index.html",context={
-        'name':enteredname
+        'name':name
     })
 
 class minView(TemplateView):
@@ -35,10 +38,12 @@ class listView(TemplateView):
 
 class contactView(CreateView):
     template_name = "contact.html"
-    model =  contactus 
+    model =  Contactus 
     fields = ('__all__')
-    success_url = '/'
+    success_url = 'home'
 
+class HomeView(TemplateView):
+    template_name = "home.html"
 
 # def contactView(request):
 #     return render(request,"contact.html")
