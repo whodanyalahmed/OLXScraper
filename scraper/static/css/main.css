@@ -40,7 +40,7 @@ img{
 }
 
 
-footer{
+/* footer{
     background-color: #fff;
     color:#555;
     width: 100%;
@@ -50,7 +50,17 @@ footer{
     bottom:0px;
     height: 3rem;
     padding-top:13px;
-}
+} */
+
+footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+  }
 
 
 #mainform{
@@ -59,7 +69,7 @@ footer{
 }
 
 #contactbtn{
-    margin-bottom:80px;
+    margin-bottom:120px;
 }
 #last{
     padding-bottom:2rem;
