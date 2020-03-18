@@ -25,7 +25,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = 'e8$yd-h5qw_acpl$ixf0t(@=n6q7x#poj(0%)e0gj6dert7jh='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['https://olxscrapeer.herokuapp.com/','localhost', '127.0.0.1']
 # ALLOWED_HOSTS = []

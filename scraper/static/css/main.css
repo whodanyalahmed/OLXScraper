@@ -69,7 +69,11 @@ footer {
 .container{
     min-height: 90vh !important;
 }
-
+span.asteriskField{
+    font-weight: bolder;
+    color: rgb(212, 55, 16);
+    margin-left:5px;
+}
 #mainform{
     margin-bottom:80px;
 }
