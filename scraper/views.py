@@ -12,7 +12,13 @@ from .models import Contactus
 # class homeView(TemplateView):
 #     template_name = "index.html"
 enteredname= ""
-
+price = 0
+mincount = 0
+maxcount = 0
+minprice = minpr(price)
+maxprice = 0
+minname = ""
+maxname = ""
 def suchomeView(request):
     try:
         listname = Contactus.objects.order_by('pk')
@@ -58,13 +64,6 @@ def search(request):
     title = request.POST.get('title')
     # url = request.POST.get('url',None)
     # con = Person.objects.get(name = url)
-    price = 0
-    mincount = 0
-    maxcount = 0
-    minprice = minpr(price)
-    maxprice = 0
-    minname = ""
-    maxname = ""
     try:    
         html = requests.get("https://www.olx.com.pk/items/q-"+url)
         scode = html.status_code
