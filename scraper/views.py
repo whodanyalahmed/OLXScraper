@@ -7,7 +7,11 @@ from django.core.files import File
 from bs4 import BeautifulSoup
 from .models import Contactus
 # Create your views here.
-
+def minpr(d):
+    if d == 0:
+        return 100000000000000000000
+    else:
+        return 1 
 
 # class homeView(TemplateView):
 #     template_name = "index.html"
@@ -174,8 +178,3 @@ def listextract(request):
     except Exception as e:
         return render(request,"notfound.html",{'error':e})
 
-def minpr(d):
-    if d == 0:
-        return 100000000000000000000
-    else:
-        return 1 
