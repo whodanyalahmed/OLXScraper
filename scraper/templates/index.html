@@ -43,7 +43,7 @@ $(document).ready(function() {
 <form action="/search" method="POST" id="mainform">
 {% csrf_token %}    
     <h2 class="second">Search here...</h2>
-    <div class="input-group mb-3">
+    <div class="input-group mb-3" id="mainsearch">
     
         <input type="hidden" class="form-control" name="title" value="Home" />
         <input type="text" class="form-control" placeholder="Enter product ; it will show max and min both" name="url" autofocus aria-label="url" aria-describedby="button-addon2" autocomplete=off>

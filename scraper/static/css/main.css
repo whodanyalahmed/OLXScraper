@@ -34,7 +34,12 @@ p{
     width:211px;
     margin-top:20px;
 }
-
+#eclaim{
+    padding-bottom:100px;
+}
+#mainsearch{
+    padding-bottom:120px;
+}
 img{
     border-radius: 20px !important;
 }
@@ -61,10 +66,11 @@ footer {
     background-color: #efefef;
     text-align: center;
   }
-
+.container{
+    min-height: 90vh !important;
+}
 
 #mainform{
-    padding-top:50px;
     margin-bottom:80px;
 }
 
@@ -134,9 +140,21 @@ nav{
       background:rgba(85, 85, 85, 0.657);
   }
 
-  /* @media only screen and (max-width: 1500px) {
-    footer {
+  /* @media only screen and (max-width: 900px) { */
+    /* footer {
       margin-bottom:-20px;
       color:rgb(231, 7, 231);
+    } */
+    
+    /* footer {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 1rem;
+        clear: both;
+        background-color: #efefef;
+        text-align: center;
     }
+
   } */
