@@ -15,14 +15,8 @@ def minpr(d):
 
 # class homeView(TemplateView):
 #     template_name = "index.html"
-enteredname= ""
-price = 0
-mincount = 0
-maxcount = 0
-minprice = minpr(price)
-maxprice = 0
-minname = ""
-maxname = ""
+
+
 def suchomeView(request):
     try:
         listname = Contactus.objects.order_by('pk')
@@ -64,6 +58,14 @@ def aboutView(request):
 
 
 def search(request):
+    enteredname= ""
+    price = 0
+    mincount = 0
+    maxcount = 0
+    minprice = minpr(price)
+    maxprice = 0
+    minname = ""
+    maxname = ""
     url = request.POST["url"]
     title = request.POST.get('title')
     # url = request.POST.get('url',None)
