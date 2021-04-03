@@ -12,7 +12,7 @@ colorama==0.4.3
 cycler==0.10.0
 decorator==4.4.1
 defusedxml==0.6.0
-Django==2.2.10
+Django
 django-heroku==0.3.1
 entrypoints==0.3
 et-xmlfile==1.0.1
@@ -94,4 +94,4 @@ widgetsnbextension==3.5.1
 wrapt==1.11.2
 xlrd==1.2.0
 zipp==0.6.0
-django-crispy-forms==1.9.0 
+django-crispy-forms
