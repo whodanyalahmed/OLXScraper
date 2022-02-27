@@ -16,44 +16,48 @@ minprice = minpr(price)
 maxprice = 0
 minname = ""
 maxname = ""
+
+price = []
+name = []
+link = []
 # url = request.POST.get('url',None)
 # con = Person.objects.get(name = url)
 url = "iphone-7"
 try:
-    html = requests.get("https://www.olx.com.pk/items/q-"+url)
-    scode = html.status_code
-    print(html.status_code)
 
-    soup = BeautifulSoup(html.text, "lxml")
+    for page_count in range(1, 3):
+        html = requests.get(
+            "https://www.olx.com.pk/items/q-"+url+"?page="+str(page_count))
+        scode = html.status_code
+        print(html.status_code)
 
-    price = []
-    name = []
-    link = []
-    # get all the UL tags
-    for ul in soup.findAll('ul', {'class': 'ba608fb8'}):
-        # get all the LI tags
-        for li in ul.findAll('li'):
-            # print(li)
-            # get the text
-            # mname = li
-            # get the div in li with attribute aria-label="Title"
-            for name_div in li.findAll('div', {'aria-label': 'Title'}):
-                print(name_div.text)
-                name.append(name_div.text)
-            for price_div in li.findAll('div', {'aria-label': "Price"}):
-                print(price_div.text)
-                mprice = price_div.text
-                sprice = mprice.split()
-                co = sprice[1].replace(",", "")
-                price.append(co)
-            # get the image attribute data-src
-            try:
+        soup = BeautifulSoup(html.text, "lxml")
 
-                img = li.find('img')
-                print(img['src'])
-                link.append(img['src'])
-            except Exception as e:
-                print('exception', e)
+        # get all the UL tags
+        for ul in soup.findAll('ul', {'class': 'ba608fb8'}):
+            # get all the LI tags
+            for li in ul.findAll('li'):
+                # print(li)
+                # get the text
+                # mname = li
+                # get the div in li with attribute aria-label="Title"
+                for name_div in li.findAll('div', {'aria-label': 'Title'}):
+                    print(name_div.text)
+                    name.append(name_div.text)
+                for price_div in li.findAll('div', {'aria-label': "Price"}):
+                    print(price_div.text)
+                    mprice = price_div.text
+                    sprice = mprice.split()
+                    co = sprice[1].replace(",", "")
+                    price.append(co)
+                # get the image attribute data-src
+                try:
+
+                    img = li.find('img')
+                    print(img['src'])
+                    link.append(img['src'])
+                except Exception as e:
+                    print('exception', e)
     print("this is after loop")
     # for each_name in soup.findAll('span', {'class': '_2tW1I'}):
     #     mname = each_name.text

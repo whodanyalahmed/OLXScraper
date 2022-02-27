@@ -99,20 +99,20 @@ def search(request):
                 # mname = li
                 # get the div in li with attribute aria-label="Title"
                 for name_div in li.findAll('div', {'aria-label': 'Title'}):
-                    print(name_div.text)
+
                     name.append(name_div.text)
                 for price_div in li.findAll('div', {'aria-label': "Price"}):
-                    print(price_div.text)
+
                     mprice = price_div.text
                     sprice = mprice.split()
                     co = sprice[1].replace(",", "")
                     price.append(co)
                 # get the image attribute data-src
-                
+
                 try:
 
                     img = li.find('img')
-                    print(img['src'])
+                    # print(img['src'])
                     link.append(img['src'])
                 except Exception as e:
                     print('exception', e)
@@ -150,7 +150,12 @@ def getFile(request):
     writer = csv.writer(response)
     with open(pathtofile, "r") as e:
         for d in e.readlines():
-            row_to_list = [d.rstrip()]
+            d = d.rstrip("\n")
+            row_to_list = [d.rstrip('')]
+            
+            # split by comma
+            row_to_list = d.split(',')
+
             writer.writerow(row_to_list)
             print(row_to_list)
     return response
@@ -158,29 +163,49 @@ def getFile(request):
 
 def listextract(request):
     url = request.POST["url"]
+    url = url.replace(" ", "-")
     title = request.POST.get('title')
     # url = request.POST.get('url')
     # con = Person.objects.get(name = url)
     try:
         html = requests.get("https://www.olx.com.pk/items/q-"+url)
         scode = html.status_code
-        print(str(html.status_code) + "reach here")
+        print(str(html.status_code) + " reach here")
 
         soup = BeautifulSoup(html.text, "lxml")
         name = []
 
-        for each_name in soup.findAll('span', {'class': '_2tW1I'}):
-            mname = each_name.text
-            # print(mname)
-            name.append(mname)
+        # for each_name in soup.findAll('span', {'class': '_2tW1I'}):
+        #     mname = each_name.text
+        #     # print(mname)
+        #     name.append(mname)
 
         price = []
-        for each_price in soup.findAll('span', {'class': '_89yzn'}):
-            mprice = each_price.text
-            sprice = mprice.split()
-            co = sprice[1].replace(",", "")
-            # print(co)
-            price.append(co)
+        # for each_price in soup.findAll('span', {'class': '_89yzn'}):
+        #     mprice = each_price.text
+        #     sprice = mprice.split()
+        #     co = sprice[1].replace(",", "")
+        #     # print(co)
+        #     price.append(co)
+
+        for ul in soup.findAll('ul', {'class': 'ba608fb8'}):
+            # get all the LI tags
+            for li in ul.findAll('li'):
+                # print(li)
+                # get the text
+                # mname = li
+                # get the div in li with attribute aria-label="Title"
+                for name_div in li.findAll('div', {'aria-label': 'Title'}):
+
+                    name.append(name_div.text)
+                for price_div in li.findAll('div', {'aria-label': "Price"}):
+
+                    mprice = price_div.text
+                    sprice = mprice.split()
+                    co = sprice[1].replace(",", "")
+                    price.append(co)
+        print(len(name))
+        print(len(price))
         dt = dict(zip(name, price))
         path = settings.STATIC_ROOT+"\\files"
         try:
@@ -192,13 +217,16 @@ def listextract(request):
             print("File created")
         print(path)
         print(pathtofile)
-        header = "name,price\n"
-        with open(pathtofile, "w+") as f:
+        header = ["name", "price"]
+        with open(pathtofile, "w+", encoding='UTF8', newline='') as f:
             myfile = File(f)
-            myfile.write(header)
+            writer = csv.writer(f, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+            writer.writerow(header)
+            # myfile.write(header)
             for k, v in dt.items():
                 k = k.replace(",", "-")
-                myfile.write(k + "," + v + "\n")
+                writer.writerow([k, v])
+                # myfile.write(k + "," + v + "\n")
         return render(request, "search.html", context={'title': title, 'html': html, 'path': pathtofile})
     except Exception as e:
         return render(request, "notfound.html", {'error': e})
